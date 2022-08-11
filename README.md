@@ -22,5 +22,5 @@ Tool: [MVTec Deeplearning Tool 22.06](https://www.mvtec.com/products/deep-learni
 
 ### Label: Nam ri sat
 <div align="center" style="inline_block">
-<img src='storage/label_namrisat.png' style='width: 50%'>
+<img src='storage/label_namrisat.jpg' style='width: 50%'>
 </div>
