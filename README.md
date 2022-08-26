@@ -26,3 +26,4 @@ Tool: [MVTec Deeplearning Tool 22.06](https://www.mvtec.com/products/deep-learni
 </div>
 
 ## Properties
+636 images
