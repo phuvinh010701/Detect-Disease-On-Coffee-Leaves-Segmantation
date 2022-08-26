@@ -26,9 +26,6 @@ Tool: [MVTec Deeplearning Tool 22.06](https://www.mvtec.com/products/deep-learni
 </div>
 
 ## Properties
-<<<<<<< HEAD
 636 images
-=======
 
 ## Approach
->>>>>>> c72fa014cc0d5ba7f7fc8c95234f7b03b3801ba1
