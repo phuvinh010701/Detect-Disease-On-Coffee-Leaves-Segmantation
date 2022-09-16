@@ -14,7 +14,6 @@ Tool: [MVTec Deeplearning Tool 22.06](https://www.mvtec.com/products/deep-learni
 </div>
 
 
-
 ### Label: Sau ve bua
 <div align="center" style="inline_block">
 <img src='storage/label_sauvebua.png' style='width: 50%'>
@@ -25,6 +24,12 @@ Tool: [MVTec Deeplearning Tool 22.06](https://www.mvtec.com/products/deep-learni
 <img src='storage/label_namrisat.jpg' style='width: 50%'>
 </div>
 
-### Number of total images:
+### Overview:
 
-- 534
+- 534 images
+- Sau ve bua: 327 objects
+- Nam ri sat: 531 objects
+
+<div align="center" style="inline_block">
+<img src='storage/overview.png' style='width: 50%'>
+</div>
