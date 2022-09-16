@@ -25,7 +25,6 @@ Tool: [MVTec Deeplearning Tool 22.06](https://www.mvtec.com/products/deep-learni
 <img src='storage/label_namrisat.jpg' style='width: 50%'>
 </div>
 
-## Properties
-636 images
+### Number of total images:
 
-## Approach
+- 534
