@@ -36,5 +36,23 @@ Tool: [MVTec Deeplearning Tool 22.06](https://www.mvtec.com/products/deep-learni
 
 ## Build model unet
 
+## Without augmented
 ### Version 1
 
+<div align="center" style="inline_block">
+<img src='storage/model_ver1.png' style='width: 50%'>
+</div>
+
+* num parameters: 7.699.011
+
+* Accuracy on test set: 0.9669
+
+<div align="center" style="inline_block">
+<img src='storage/res_ver1_1.png' style='width: 50%'>
+<img src='storage/res_ver1_2.png' style='width: 50%'>
+<img src='storage/res_ver1_3.png' style='width: 50%'>
+<img src='storage/res_ver1_4.png' style='width: 50%'>
+<img src='storage/res_ver1_5.png' style='width: 50%'>
+</div>
+
+* Kết quả dự đoán ở class 1 chưa tốt
