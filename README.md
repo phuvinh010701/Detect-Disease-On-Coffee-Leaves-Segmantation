@@ -14,12 +14,12 @@ Tool: [MVTec Deeplearning Tool 22.06](https://www.mvtec.com/products/deep-learni
 </div>
 
 
-### Label: Sau ve bua
+### Label 1: Sau ve bua
 <div align="center" style="inline_block">
 <img src='storage/label_sauvebua.png' style='width: 50%'>
 </div>
 
-### Label: Nam ri sat
+### Label 2: Nam ri sat
 <div align="center" style="inline_block">
 <img src='storage/label_namrisat.jpg' style='width: 50%'>
 </div>
@@ -36,14 +36,24 @@ Tool: [MVTec Deeplearning Tool 22.06](https://www.mvtec.com/products/deep-learni
 
 ## Build model unet
 
-## Without augmented
-### Version 1
+## Version 1
+
+### Without augmentation
 
 <div align="center" style="inline_block">
 <img src='storage/model_ver1.png' style='width: 50%'>
 </div>
 
 * num parameters: 7.699.011
+
+* training:
+
+<div align="center" style="inline_block">
+<img src='storage/acc.png' style='width: 50%'>
+<img src='storage/loss.png' style='width: 50%'>
+</div>
+
+
 
 * Accuracy on test set: 0.9669
 
@@ -52,17 +62,33 @@ Tool: [MVTec Deeplearning Tool 22.06](https://www.mvtec.com/products/deep-learni
 <img src='storage/res_ver1_2.png' style='width: 50%'>
 <img src='storage/res_ver1_3.png' style='width: 50%'>
 <img src='storage/res_ver1_4.png' style='width: 50%'>
-<img src='storage/res_ver1_5.png' style='width: 50%'>
 </div>
 
-* Kết quả dự đoán ở class 1 chưa tốt
+* Dữ liệu khá ít, nên để tránh trước việc overfitting nên mạng unet đã được cắt giảm bớt 1 block downsample và 1 block upsample so với kiến trúc gốc, giảm số lượng tham số xuống còn khoảng 7 tr, trong khi model gốc khoảng 31tr
 
-## Difficult
-
-* Dữ liệu khá ít, nên để tránh trước việc ovefitting nên mạng unet đã được cắt bớt, giảm số lượng tham số xuống còn khoảng 7tr, trong khi model gốc khoảng 31tr
-
-* Dữ liệu ít làm cho model dự đoán không tốt. Mặc dù accuracy cao ~0.9669, vì khi label đưa vào mạng, label đã được categorical, và label 0 trong label chiếm số lượng lớn, trong khi các label chính là 0 và 1 chiếm số lượng nhỏ. Mô hình dự đoán phần lớn các pixel là 0 vì vậy mà accuraccy cao và không tăng khi đạt 0.967.
+* Model cho ra accuracy khá cao tuy nhiên kết quả test rất tệ. Có thể lý giải như sau. Kích thước ảnh đưa vào mạng là 256 x 256 trong có có rất nhiều pixel mang label 0 (background) khi mô hình dự đoán, đa phần các pixel được dự đoán mang giá trị là 0 điều này làm cho accuracy cao. Trong khi đó các label 1 và label 2 không dự đoán được làm cho kết quả test trên dữ liệu thật tệ.
 
 
+### With augmentation
 
-* Khi training đặt số lượng epoch là 100, và early stoppng theo dõi val_loss, patience=2, vì patience khá thấp cho nên model không train được nhiều (~8 epoch) và accuracy đạt khoảng 0.96. Kết quả test thì model dự đoán toán label 0. Khi tăng patience lên thì model đã train được nhiều hơn và accuracy lên 0.99. Kết quả test cũng khả quan hơn
+* Các phép biến đổi được dùng để tăng cường dữ liệu bao gồm:
+
+	* Horizontal flip
+	* Vertical flip
+	* Rotate
+	* Shear
+	* Scale
+	* Translate
+	* Brighness
+	* Crop
+
+<div align="center" style="inline_block">
+<img src='storage/Figure_1.png' style='width: 50%'>
+</div>
+
+* Dữ liệu = (num images) * 5 + (num images) = 3024 images
+
+* Vì khi load dữ liệu với size 256x256 vào ram để đưa vào model thì sẽ làm cho colab mất kết nối do tràn ram do đó phải viết lại hàm train model theo từng batch và đọc ảnh từ path của image
+
+* Khi training đặt số lượng epoch là 100, và early stoppng theo dõi val_loss, patience=2, vì patience khá thấp cho nên model không train được nhiều (~8 epoch) và accuracy đạt khoảng 0.96. Kết quả test thì model dự đoán đa số là label 0 làm cho kết quả thực tế không tốt. Khi tăng patience lên thì model đã train được nhiều hơn và accuracy lên 0.99. Kết quả test cũng chính xác hơn
+
