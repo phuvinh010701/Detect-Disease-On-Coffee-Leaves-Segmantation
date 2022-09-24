@@ -48,11 +48,12 @@ Tool: [MVTec Deeplearning Tool 22.06](https://www.mvtec.com/products/deep-learni
 
 * training:
 
-<div align="center" style="inline_block">
-<img src='storage/acc.png' style='width: 50%'>
-<img src='storage/loss.png' style='width: 50%'>
+<div align="center">
+<a align="center" style="inline_block">
+<img src='storage/acc.png' style='width: 30%'>
+<img src='storage/loss.png' style='width: 30%'>
+</a>
 </div>
-
 
 
 * Accuracy on test set: 0.9669
@@ -92,3 +93,20 @@ Tool: [MVTec Deeplearning Tool 22.06](https://www.mvtec.com/products/deep-learni
 
 * Khi training đặt số lượng epoch là 100, và early stoppng theo dõi val_loss, patience=2, vì patience khá thấp cho nên model không train được nhiều (~8 epoch) và accuracy đạt khoảng 0.96. Kết quả test thì model dự đoán đa số là label 0 làm cho kết quả thực tế không tốt. Khi tăng patience lên thì model đã train được nhiều hơn và accuracy lên 0.99. Kết quả test cũng chính xác hơn
 
+
+* training:
+
+<div align="center">
+<a align="center" style="inline_block">
+<img src='storage/acc1.png' style='width: 30%'>
+<img src='storage/loss1.png' style='width: 30%'>
+</a>
+</div>
+
+* testing:
+
+
+
+9792
+
+0.9823
