@@ -84,7 +84,7 @@ Tool: [MVTec Deeplearning Tool 22.06](https://www.mvtec.com/products/deep-learni
 	* Crop
 
 <div align="center" style="inline_block">
-<img src='storage/Figure_1.png' style='width: 50%'>
+<img src='storage/Figure_2.png' style='width: 50%'>
 </div>
 
 * Dữ liệu = (num images) * 5 + (num images) = 3024 images
@@ -105,8 +105,40 @@ Tool: [MVTec Deeplearning Tool 22.06](https://www.mvtec.com/products/deep-learni
 
 * testing:
 
+<div align="center" style="inline_block">
+<img src='storage/aug_res_ver1_1.png' style='width: 50%'>
+<img src='storage/aug_res_ver1_2.png' style='width: 50%'>
+<img src='storage/aug_res_ver1_3.png' style='width: 50%'>
+<img src='storage/aug_res_ver1.png' style='width: 50%'>
+</div>
+
+## Version 2
+
+<div align="center" style="inline_block">
+<img src='storage/model_ver2.png' style='width: 50%'>
+</div>
+
+* numparameters: 31,033,411
+
+### with augmentation
 
 
-9792
+* training:
 
-0.9823
+<div align="center">
+<a align="center" style="inline_block">
+<img src='storage/acc2.png' style='width: 30%'>
+<img src='storage/loss2.png' style='width: 30%'>
+</a>
+</div>
+
+* testing:
+
+<div align="center" style="inline_block">
+<img src='storage/aug_res_ver2_1.png' style='width: 50%'>
+<img src='storage/aug_res_ver2_2.png' style='width: 50%'>
+<img src='storage/aug_res_ver2_3.png' style='width: 50%'>
+<img src='storage/aug_res_ver2.png' style='width: 50%'>
+</div>
+
+* Ket qua test thuc te cho thay kha dung va hieu qua hon so voi unet 7tr parameters
