@@ -1,5 +1,17 @@
 # Semantic Segmantation
+Install requirements
+<pre>
+pip install -r requirements.txt
+</pre>
+Train
+<pre>
+python3 train.py --img_path aug_imgs/ --label_path aug_labels/ --shape 256 --batch_size 16
+</pre>
 
+Test
+<pre>
+python3 test.py --img_path aug_imgs/IMG_2144.JPG --model segmantation.h5
+</pre>
 ---
 
 ## Data labeling
@@ -141,4 +153,4 @@ Tool: [MVTec Deeplearning Tool 22.06](https://www.mvtec.com/products/deep-learni
 <img src='storage/aug_res_ver2.png' style='width: 50%'>
 </div>
 
-* Ket qua test thuc te cho thay kha dung va hieu qua hon so voi unet 7tr parameters
+* Kết quả test trên dữ liệu cho thấy model đã học được cách phát hiện được bệnh, phát hiện khá chính xác. Tuy nhiên một số những điểm ảnh bị chói sáng do ánh sáng mặt trời thì model phát hiện thành bệnh sâu vẽ bùa.

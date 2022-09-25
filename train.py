@@ -71,8 +71,8 @@ class DataGenerator(Sequence):
 def main():
     args = parser()
     check_arguments_errors(args)
-    img_path = glob2.glob(args.img_path + '/*')
-    label_path = glob2.glob(args.label_path + '/*')
+    img_path = glob2.glob(args.img_path + '*')
+    label_path = glob2.glob(args.label_path + '*')
 
     img_path.sort()
     label_path.sort()
