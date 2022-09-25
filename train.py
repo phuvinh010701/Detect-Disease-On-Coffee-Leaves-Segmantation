@@ -26,7 +26,6 @@ def check_arguments_errors(args):
 
 class DataGenerator(Sequence):
     def __init__(self, all_filenames, labels, batch_size, input_dim, n_channels, shuffle=True):
-
         self.all_filenames = all_filenames
         self.labels = labels
         self.batch_size = batch_size
@@ -36,11 +35,9 @@ class DataGenerator(Sequence):
         self.on_epoch_end()
 
     def __len__(self):
-  
         return int(np.floor(len(self.all_filenames) / self.batch_size))
 
     def __getitem__(self, index):
-       
         indexes = self.indexes[index*self.batch_size:(index+1)*self.batch_size]
         all_filenames_temp = [self.all_filenames[k] for k in indexes]
         X, Y = self.__data_generation(all_filenames_temp)
@@ -48,7 +45,6 @@ class DataGenerator(Sequence):
         return X, Y
 
     def on_epoch_end(self):
-       
         self.indexes = np.arange(len(self.all_filenames))
         if self.shuffle == True:
             np.random.shuffle(self.indexes)
@@ -57,10 +53,8 @@ class DataGenerator(Sequence):
       
         X = np.empty((self.batch_size, *self.input_dim, self.n_channels))
         Y = np.empty((self.batch_size, *self.input_dim, self.n_channels))
-
-
+        
         for i, (fn, label_fn) in enumerate(all_filenames_temp):
-
             img = load_img(fn, target_size=self.input_dim)
             label = load_img(label_fn, target_size=self.input_dim, color_mode='grayscale')
 
@@ -92,6 +86,7 @@ def main():
     n_channels = 3,
     shuffle = True,
     )
+    
     val_generator = DataGenerator(
     all_filenames = list(zip(val_img_paths, val_label_paths)),
     labels = val_label_paths,
@@ -100,7 +95,7 @@ def main():
     n_channels = 3,
     shuffle = True,
     ) 
-    print("ok-----------------------")
+    
     u = unet()
     history = u.fit(train_generator,
           steps_per_epoch=len(train_generator),
@@ -109,9 +104,8 @@ def main():
           epochs=100,
           callbacks = (EarlyStopping(monitor='val_loss', patience=12, restore_best_weights=True))
     )
+    
     u.save('segmantation.h5')
 
 if __name__ == "__main__":
-    # unconmment next line for an example of batch processing
-    # batch_detection_example()
     main()
