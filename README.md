@@ -8,6 +8,11 @@ Train
 python3 train.py --img_path aug_imgs/ --label_path aug_labels/ --shape 256 --batch_size 16
 </pre>
 
+Evaluate
+<pre>
+python3 evaluate.py --img_path aug_imgs/ --label_path aug_labels --model segmantation.h5 --shape 256 --batch_size 16
+</pre>
+
 Test
 <pre>
 python3 test.py --img_path aug_imgs/IMG_2144.JPG --model segmantation.h5
